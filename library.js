@@ -9,9 +9,7 @@ function Book(title, author, pages, finished) {
 }
 
 Book.prototype.info = function() {
-    console.log(this.title + this.author);
-    // Why does this log ƒ () {
-   // console.log(this.title + this.author); ?? 
+    return (this.title + ',' + this.author + ',' + this.pages + ',' + this.finished)
 }
 
 
@@ -20,11 +18,17 @@ function addBooktoLibrary(Book) {
 }
 
 let display = document.querySelectorAll('#container')
-let harry_potter = new Book('asdj', 'adsad', 'asdqd', true)
-console.log(harry_potter.info);
+let harry_potter = new Book('Harry Potter', 'JK Rowling', '3005', true)
 addBooktoLibrary(harry_potter);
 
-for (let i = 0; i < library.length; i++) {
-    display.textContent = library[i].info;
-    console.log(library[i].info);
+for (let i = 0 ; i < library.length ; i++) {
+    console.log(library[i].info());
 }
+
+
+
+
+// Debugging on: 
+// info logging 
+// textContent not showing
+// displaying books / titles on the page
