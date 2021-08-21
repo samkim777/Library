@@ -2,3 +2,31 @@
     text-align:center;
 }
 
+.grid-container_upper {
+    position:relative;
+    display: grid;
+    text-align:center;
+    grid-auto-flow:column;
+    min-height:300px;
+  
+    
+}
+.grid-container_lower{
+    position:relative;
+    display: grid;
+    text-align:center;
+    grid-auto-flow:column;
+    min-height:300px;
+}
+
+.grid-item {
+    border:1px solid black;
+    padding:20px;
+    width:auto;
+    height:auto;
+}
+
+.container {
+    column-gap: 50px;    
+}
+

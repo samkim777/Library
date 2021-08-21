@@ -17,23 +17,24 @@ function addBooktoLibrary(Book) {
     library.push(Book)
 }
 
-let display = document.getElementById('container')
+let display = document.getElementById('grid-item')
 let harry_potter = new Book('Harry Potter', 'JK Rowling', '3005', true);
 let alchemist = new Book('Alchemist', 'Paulo Coelho', '300', false);
 addBooktoLibrary(harry_potter);
 addBooktoLibrary(alchemist);
-display.textContent = 'qwdjiqwdj';
+
 
 for (let i = 0 ; i < library.length ; i++) {
     console.log((library[i].info().toString()));
-    display.textContent = library[i].info().toString();
+    let content = document.getElementById('grid-item');
+    content.textContent = library[i].info().toString();
 }
 
 
 
 
 // Debugging on: 
-// info logging Check
-// textContent not showing -> Because textcontent needs string but library[i].info is giving a function
-// toString makes function into a string, but is it the correct string? Object undefined this.toString() works
+
+// Making flex box/ grid boxes and putting textContent inside them
+// Making new books on button event
 // displaying books / titles on the page
