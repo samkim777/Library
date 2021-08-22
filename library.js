@@ -8,7 +8,7 @@ function Book(title, author, pages, finished) {
 
 }
 
-Book.prototype.info = function() {
+Book.prototype.info = function () {
     return (this.title + ',' + this.author + ',' + this.pages + ',' + this.finished);
 }
 
@@ -17,15 +17,16 @@ function addBooktoLibrary(Book) {
     library.push(Book)
 }
 
-let content = document.getElementById('container');
+let content = document.getElementById('grid-container');
 let harry_potter = new Book('Harry Potter', 'JK Rowling', '3005', true);
 let alchemist = new Book('Alchemist', 'Paulo Coelho', '300', false);
 addBooktoLibrary(harry_potter);
 addBooktoLibrary(alchemist);
 
 
-for (let i = 0 ; i < library.length ; i++) {
-    
+for (let i = 0; i < library.length; i++) {
+    content.children[i].textContent = library[i].info().toString();
+
 }
 
 
