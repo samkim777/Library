@@ -12,18 +12,52 @@
     <link href="style.css" rel="stylesheet">
 </head>
 
-<body> 
-        <div class='grid-container' id = 'grid-container'>
-            <div class='grid-item' id = '1'> Book </div>
-            <div class='grid-item' id = '2'> Book </div>
-            <div class='grid-item' id = '3'> Book </div>
-        
-            <div class='grid-item' id = '4'> Book </div>
-            <div class='grid-item' id = '5'> Book </div>
-            <div class='grid-item' id = '6'> Book </div>
+<body>
+    <div class='grid-container' id='grid-container'>
+        <div class='grid-item' id='1'> Book </div>
+        <div class='grid-item' id='2'> Book </div>
+        <div class='grid-item' id='3'> Book </div>
+
+        <div class='grid-item' id='4'> Book </div>
+        <div class='grid-item' id='5'> Book </div>
+        <div class='grid-item' id='6'> Book </div>
     </div>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <label for='title'> Book Title: </label>
+            <input type='text' id='title'>
+            <br>
+            </br>
+
+            <label for='author'> Book author: </label>
+            <input type='text' id='author'>
+            <br>
+            </br>
+
+            <label for='pages'> Number of pages: </label>
+            <input type='text' id='pages'>
+            <br>
+            </br>
+
+            <label for='status'> Book status: </label>
+            <input type='text' id='status'>
+
+
+            <span class="close">&times;</span>
+            <p></p>
+        </div>
+
+    </div>
+
+    <button id='mybtn'>Add new book</button>
+
     <script src="library.js"></script>
+
+
 </body>
 
 </html>
