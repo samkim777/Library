@@ -17,7 +17,7 @@ function addBooktoLibrary(Book) {
     library.push(Book)
 }
 
-let display = document.getElementById('grid-item')
+let content = document.getElementById('container');
 let harry_potter = new Book('Harry Potter', 'JK Rowling', '3005', true);
 let alchemist = new Book('Alchemist', 'Paulo Coelho', '300', false);
 addBooktoLibrary(harry_potter);
@@ -25,10 +25,9 @@ addBooktoLibrary(alchemist);
 
 
 for (let i = 0 ; i < library.length ; i++) {
-    console.log((library[i].info().toString()));
-    let content = document.getElementById('grid-item');
-    content.textContent = library[i].info().toString();
+    
 }
+
 
 
 
