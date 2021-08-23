@@ -23,10 +23,6 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
-let title = document.getElementById('title').value;
-let author = document.getElementById('author').value;
-let pages = document.getElementById('pages').value;
-let status = document.getElementById('status').value;
 let harry_potter = new Book('Harry Potter', 'JK Rowling', '3005', true);
 let alchemist = new Book('Alchemist', 'Paulo Coelho', '300', false);
 
@@ -34,12 +30,16 @@ addBooktoLibrary(harry_potter);
 addBooktoLibrary(alchemist);
 
 submitBtn.onclick = function () {
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
+    let status = document.getElementById('status').value;
     modal.style.display = 'none'; // close the modal screen
-    let books = new Book (title, author, pages, status);
+    let books = new Book(title,author,pages,status);
     console.log(books.info());
     // logs ', , ,' 
-
 }
+
 
 btn.onclick = function () {
     modal.style.display = 'block';
