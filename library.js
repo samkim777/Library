@@ -34,8 +34,11 @@ submitBtn.onclick = function () {
     let books = new Book(title, author, pages, status);
     addBooktoLibrary(books);
     displayBooks();
-    modal.style.display = 'none'; // close the modal screen
+    modal.style.display = 'none'; // close the modal screen   
 }
+
+
+
 
 
 
