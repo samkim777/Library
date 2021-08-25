@@ -1,4 +1,5 @@
 let library = []
+let del_buttons = [];
 
 function Book(title, author, pages, finished) {
     this.title = title;
@@ -18,11 +19,14 @@ function addBooktoLibrary(Book) {
 }
 
 let content = document.getElementById('grid-container');
-let grid_item = document.getElementById('grid-item');
+let grid_item = document.getElementsByClassName('grid-item');
 let modal = document.getElementById('myModal');
 let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
+
+let delete_button = document.createElement('button');
+
 
 
 
@@ -36,9 +40,6 @@ submitBtn.onclick = function () {
     displayBooks();
     modal.style.display = 'none'; // close the modal screen   
 }
-
-
-
 
 
 
@@ -59,9 +60,25 @@ window.onclick = function (event) {
 
 displayBooks = function () {
     for (let i = 0; i < library.length; i++) {
+        // document.getElementById(i.toString()).classList.add(delete_button);
+        console.log(document.getElementById(i.toString()));
+       // ??
         content.children[i].textContent = library[i].info().toString();
+        content.style.textAlign = 'center';
+
+        delete_button.textContent = 'Delete';
+        content.children[i].appendChild(delete_button);
+        delete_button.style.top = '100px';
+        delete_button.style.float = 'left';
     }
 }
+
+ 
+
+
+
+
+
 
 
 
