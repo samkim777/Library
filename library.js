@@ -14,8 +14,9 @@ Book.prototype.info = function () {
 }
 
 
-function addBooktoLibrary(Book) {
-    library.push(Book)
+function addBooktoLibrary(Book,callback) {
+    library.push(Book);
+    callback;
 }
 
 let content = document.getElementById('grid-container');
@@ -38,11 +39,9 @@ submitBtn.onclick = function () {
     let pages = document.getElementById('pages').value;
     let status = document.getElementById('status').value;
     let books = new Book(title, author, pages, status);
-    addBooktoLibrary(books);
-    displayBooks();
+    addBooktoLibrary(books,displayBooks);
     modal.style.display = 'none'; // close the modal screen   
-    Array.from(del_button)[0].style.display = 'block';
-
+    console.log(Array.from(grid_item)[0].children);
 }
 
 
@@ -66,7 +65,8 @@ displayBooks = function () {
     for (let i = 0; i < library.length; i++) {
         content.children[i].textContent = library[i].info().toString();
         content.style.textAlign = 'center';
-// Array.from(del_button)[0].style.display = 'block'
+
+        // Array.from(del_button)[0].style.display = 'block'
     }
 }
 
