@@ -14,7 +14,7 @@ Book.prototype.info = function () {
 }
 
 
-function addBooktoLibrary(Book,callback) {
+function addBooktoLibrary(Book, callback) {
     library.push(Book);
     callback;
 }
@@ -26,6 +26,7 @@ let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
 let del_button = document.getElementsByClassName('buttons');
+let count = 0;
 
 
 
@@ -39,9 +40,10 @@ submitBtn.onclick = function () {
     let pages = document.getElementById('pages').value;
     let status = document.getElementById('status').value;
     let books = new Book(title, author, pages, status);
-    addBooktoLibrary(books,displayBooks);
+    addBooktoLibrary(books, displayBooks);
     modal.style.display = 'none'; // close the modal screen   
-    console.log(Array.from(grid_item)[0].children);
+    Array.from(grid_item)[count].children[0].style.display = 'block';
+    count++;
 }
 
 
