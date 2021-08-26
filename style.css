@@ -56,3 +56,9 @@ button {
     float:right;
 }
 
+.buttons {
+    display:none; /* Hidden by default */ 
+    align-content: center;
+    left: 70px;
+}
+

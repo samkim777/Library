@@ -24,8 +24,10 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
+let del_button = document.getElementById('delete');
 
-let delete_button = document.createElement('button');
+
+
 
 
 
@@ -60,30 +62,11 @@ window.onclick = function (event) {
 
 displayBooks = function () {
     for (let i = 0; i < library.length; i++) {
-        // document.getElementById(i.toString()).classList.add(delete_button);
-        console.log(document.getElementById(i.toString()));
-       // ??
         content.children[i].textContent = library[i].info().toString();
         content.style.textAlign = 'center';
-
-        delete_button.textContent = 'Delete';
-        content.children[i].appendChild(delete_button);
-        delete_button.style.top = '100px';
-        delete_button.style.float = 'left';
+        del_button.style.display = 'block';
     }
 }
-
- 
-
-
-
-
-
-
-
-
-
-
 
 // Debugging on: 
 
