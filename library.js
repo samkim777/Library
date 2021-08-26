@@ -41,6 +41,8 @@ submitBtn.onclick = function () {
     addBooktoLibrary(books);
     displayBooks();
     modal.style.display = 'none'; // close the modal screen   
+    Array.from(del_button)[0].style.display = 'block';
+
 }
 
 
@@ -64,10 +66,11 @@ displayBooks = function () {
     for (let i = 0; i < library.length; i++) {
         content.children[i].textContent = library[i].info().toString();
         content.style.textAlign = 'center';
-        del_button[i].style.display = 'block';
-        // Doesn't display first delete button?
+// Array.from(del_button)[0].style.display = 'block'
     }
 }
+
+
 
 // Debugging on: 
 
