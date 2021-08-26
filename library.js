@@ -24,7 +24,7 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
-let del_button = document.getElementById('delete');
+let del_button = document.getElementsByClassName('buttons');
 
 
 
@@ -64,7 +64,8 @@ displayBooks = function () {
     for (let i = 0; i < library.length; i++) {
         content.children[i].textContent = library[i].info().toString();
         content.style.textAlign = 'center';
-        del_button.style.display = 'block';
+        del_button[i].style.display = 'block';
+        // Doesn't display first delete button?
     }
 }
 
