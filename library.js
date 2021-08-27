@@ -25,9 +25,8 @@ let modal = document.getElementById('myModal');
 let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
-let del_button = document.getElementsByClassName('buttons');
-let button;
 let count = 0;
+let del_button;
 
 
 
@@ -44,8 +43,8 @@ submitBtn.onclick = function () {
     addBooktoLibrary(books);
     displayBooks();
     createDelete(count);
+    deleteBook();
     modal.style.display = 'none'; // close the modal screen  
-
     // Array.from(grid_item)[count].textContent = library[count].info().toString(); 
     // Array.from(del_button)[count].style.display = 'block';
     // // Want to display both textContent as well as making del_button be visible
@@ -84,12 +83,21 @@ displayBooks = function () {
 createDelete = function (id) {
     let deletes = document.createElement('button');
     deletes.textContent = 'Delete';
+    deletes.id = 'delete_button' + id;
     content.children[id].appendChild(deletes);
-    console.log(content.children[id]);
-    // Issue : Using content.children[id].appendChild collides with textContent, so I can't have the button 
-    // stay in place for all divs
-    // Perhaps it is the order of operations?
+    deletes.style.float = 'left';
+    deletes.onclick = function () {
+        console.log(deletes.parentNode.id);
+        content.children[deletes.parentNode.id].textContent = 'Book'; // Reset information
+    }
 }
+
+deleteBook = function () {
+    console.log(document.getElementById('delete_button' + count).parentNode.id);   
+}
+
+
+
 
 
 // Debugging on: 
