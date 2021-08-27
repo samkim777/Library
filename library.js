@@ -1,5 +1,6 @@
 let library = []
-let del_buttons = [];
+let library_clear;
+
 
 function Book(title, author, pages, finished) {
     this.title = title;
@@ -13,10 +14,13 @@ Book.prototype.info = function () {
     return (this.title + ',' + this.author + ',' + this.pages + ',' + this.finished);
 }
 
+Array.prototype.insert = function (index, item) {
+    this.splice(index, 0, item)
+};
+
 
 function addBooktoLibrary(Book) {
-    library.push(Book);
-
+    library.unshift(Book);
 }
 
 let content = document.getElementById('grid-container');
@@ -26,6 +30,7 @@ let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
 let count = 0;
+let deleted = 0;
 let del_button;
 
 
@@ -43,7 +48,6 @@ submitBtn.onclick = function () {
     addBooktoLibrary(books);
     displayBooks();
     createDelete(count);
-    deleteBook();
     modal.style.display = 'none'; // close the modal screen  
     // Array.from(grid_item)[count].textContent = library[count].info().toString(); 
     // Array.from(del_button)[count].style.display = 'block';
@@ -71,6 +75,7 @@ window.onclick = function (event) {
 
 displayBooks = function () {
     content.children[count].textContent = library[count].info().toString();
+
     // Here the library.length runs twice and overrides the existing button
     // Is there any reason to be using a loop here?
     // Might as well use the same count variable as in submitBtn
@@ -88,19 +93,11 @@ createDelete = function (id) {
     deletes.style.float = 'left';
     deletes.onclick = function () {
         console.log(deletes.parentNode.id);
+        deleted = deletes.parentNode.id; // Assign id of deleted div
         content.children[deletes.parentNode.id].textContent = 'Book'; // Reset information
     }
 }
-
-deleteBook = function () {
-    console.log(document.getElementById('delete_button' + count).parentNode.id);   
-}
-
-
-
-
-
-// Debugging on: 
+// Debugging on:
 
 // Add a create new book button 
 // Add a delete book button
