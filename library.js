@@ -14,9 +14,9 @@ Book.prototype.info = function () {
 }
 
 
-function addBooktoLibrary(Book, callback) {
+function addBooktoLibrary(Book) {
     library.push(Book);
-    callback;
+
 }
 
 let content = document.getElementById('grid-container');
@@ -26,7 +26,8 @@ let btn = document.getElementById('mybtn');
 let span = document.getElementsByClassName('close')[0];
 let submitBtn = document.getElementById('submit');
 let del_button = document.getElementsByClassName('buttons');
-let count = 0;
+let button;
+let count = 1;
 
 
 
@@ -40,10 +41,15 @@ submitBtn.onclick = function () {
     let pages = document.getElementById('pages').value;
     let status = document.getElementById('status').value;
     let books = new Book(title, author, pages, status);
-    addBooktoLibrary(books, displayBooks);
-    modal.style.display = 'none'; // close the modal screen   
-    Array.from(grid_item)[count].children[0].style.display = 'block';
-    count++;
+    addBooktoLibrary(books);
+    displayBooks();
+    createDelete(count);
+    modal.style.display = 'none'; // close the modal screen  
+    // Array.from(grid_item)[count].textContent = library[count].info().toString(); 
+    // Array.from(del_button)[count].style.display = 'block';
+    // // Want to display both textContent as well as making del_button be visible
+    // // But whenever I set a value for textContent, del_button is suddenly undefined
+     count++;
 }
 
 
@@ -72,6 +78,16 @@ displayBooks = function () {
     }
 }
 
+
+// Call this function inside submit button
+//  Create a delete button and attach to current div
+createDelete = function (id) {
+    let deletes = document.createElement('button');
+    deletes.textContent = 'Delete';
+    deletes.className = 'delete';
+    let deleteDiv = document.getElementById(id);
+    deleteDiv.appendChild(deletes);
+}
 
 
 // Debugging on: 
