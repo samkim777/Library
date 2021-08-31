@@ -1,4 +1,4 @@
-let library = []
+let library = ['', '', '', '', '', ''] // Initialize an array of size 6 
 let library_clear;
 
 
@@ -20,7 +20,14 @@ Array.prototype.insert = function (index, item) {
 
 
 function addBooktoLibrary(Book) {
-    library.unshift(Book);
+    for (let i = 0; i < 6; i++) {
+        if (library[i] === '') {
+            library.insert(i,Book);
+            console.log(i);
+            // working as inteneded
+            break;
+        }
+    }
 }
 
 let content = document.getElementById('grid-container');
@@ -49,10 +56,6 @@ submitBtn.onclick = function () {
     displayBooks();
     createDelete(count);
     modal.style.display = 'none'; // close the modal screen  
-    // Array.from(grid_item)[count].textContent = library[count].info().toString(); 
-    // Array.from(del_button)[count].style.display = 'block';
-    // // Want to display both textContent as well as making del_button be visible
-    // // But whenever I set a value for textContent, del_button is suddenly undefined
     count++;
 }
 
@@ -75,10 +78,8 @@ window.onclick = function (event) {
 
 displayBooks = function () {
     content.children[count].textContent = library[count].info().toString();
+    // It's actually here that the issue of wrong book being deleted is:
 
-    // Here the library.length runs twice and overrides the existing button
-    // Is there any reason to be using a loop here?
-    // Might as well use the same count variable as in submitBtn
     content.style.textAlign = 'center';
 }
 
@@ -94,7 +95,9 @@ createDelete = function (id) {
     deletes.onclick = function () {
         console.log(deletes.parentNode.id);
         deleted = deletes.parentNode.id; // Assign id of deleted div
+        library[deleted] = '';
         content.children[deletes.parentNode.id].textContent = 'Book'; // Reset information
+        
     }
 }
 // Debugging on:
