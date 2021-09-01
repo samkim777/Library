@@ -1,5 +1,6 @@
-let library = ['', '', '', '', '', ''] // Initialize an array of size 6 
-let library_clear;
+let library = [];
+let indices = [];
+
 
 
 function Book(title, author, pages, finished) {
@@ -20,14 +21,7 @@ Array.prototype.insert = function (index, item) {
 
 
 function addBooktoLibrary(Book) {
-    for (let i = 0; i < 6; i++) {
-        if (library[i] === '') {
-            library.insert(i,Book);
-            console.log(i);
-            // working as inteneded
-            break;
-        }
-    }
+    library.push(Book);
 }
 
 let content = document.getElementById('grid-container');
@@ -57,6 +51,7 @@ submitBtn.onclick = function () {
     createDelete(count);
     modal.style.display = 'none'; // close the modal screen  
     count++;
+    deleted++;
 }
 
 
@@ -77,9 +72,9 @@ window.onclick = function (event) {
 
 
 displayBooks = function () {
-    content.children[count].textContent = library[count].info().toString();
+    content.children[deleted].textContent = library[count].info().toString();
+    console.log(deleted);
     // It's actually here that the issue of wrong book being deleted is:
-
     content.style.textAlign = 'center';
 }
 
@@ -88,17 +83,19 @@ displayBooks = function () {
 //  Create a delete button and attach to current div
 createDelete = function (id) {
     let deletes = document.createElement('button');
-    deletes.textContent = 'Delete';
-    deletes.id = 'delete_button' + id;
-    content.children[id].appendChild(deletes);
-    deletes.style.float = 'left';
     deletes.onclick = function () {
         console.log(deletes.parentNode.id);
         deleted = deletes.parentNode.id; // Assign id of deleted div
-        library[deleted] = '';
         content.children[deletes.parentNode.id].textContent = 'Book'; // Reset information
-        
     }
+    deletes.textContent = 'Delete';
+    deletes.id = 'delete_button' + id;
+    if (content.children[deleted].textContent !== 'Book') {
+        content.children[deleted].appendChild(deletes);
+    }
+    // Debug on resetting location 
+    deletes.style.float = 'left';
+
 }
 // Debugging on:
 
