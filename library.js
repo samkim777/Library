@@ -79,7 +79,7 @@ displayBooks = function () {
 
 
 // Call this function inside submit button
-//  Create a delete button and attach to current div
+// Create a delete button and attach to current div
 createDelete = function (id) {
     let deletes = document.createElement('button');
     deletes.onclick = function () {
@@ -89,13 +89,12 @@ createDelete = function (id) {
     deletes.textContent = 'Delete';
     if (content.children[deleted].textContent !== 'Book') {
         content.children[deleted].appendChild(deletes);
-    } else deleted;
+    } 
     // Debug on resetting location 
     deletes.style.float = 'left';
 
 }
 // Debugging on:
-
 // Add a create new book button 
 // Add a delete book button
 // Add a change status to read button
