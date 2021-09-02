@@ -73,7 +73,6 @@ window.onclick = function (event) {
 
 displayBooks = function () {
     content.children[deleted].textContent = library[count].info().toString();
-    // It's actually here that the issue of wrong book being deleted is:
     content.style.textAlign = 'center';
 }
 
