@@ -87,13 +87,9 @@ createDelete = function (id) {
         content.children[deletes.parentNode.id].textContent = 'Book'; // Reset information
     }
     deletes.textContent = 'Delete';
-    deletes.id = 'delete_button' + id;
     if (content.children[deleted].textContent !== 'Book') {
         content.children[deleted].appendChild(deletes);
-        console.log(deleted);
-    } else if (content.children[deleted].textContent === 'Book') {
-        deleted++;
-    }
+    } else deleted;
     // Debug on resetting location 
     deletes.style.float = 'left';
 
